@@ -3,13 +3,13 @@
 Se você já construiu alguma aplicação web, você certamente sabe que existem
 vários conceitos cujos quais se deve ter em mente. HTTP, HTML, CSS, JSON,
 bancos de dados, sessões, cookies, formulários, middleware, roteamento e
-controllers são apenas algumas entre a muitas coisas cujas quais a sua
+controllers são apenas algumas entre as muitas coisas cujas quais a sua
 aplicação web *pode* ter que interagir.
 
 Enquanto que cada uma destas coisas *podem vir a ser importantes* no
-desenvolvimento das suas aplicações web, nem todas são *importantes* para
-toda e qualquer aplicação. Por exemplo, uma API web pode simplesmente utilizar
-JSON como formato de serialização, deste modo tornando conceitos como HTML
+desenvolvimento das suas aplicações web, nem todas *são importantes* para
+toda e qualquer aplicação. Por exemplo, uma API web pode utilizar
+JSON como formato de serialização, e deste modo tornar conceitos como HTML
 irrelevantes para esta aplicação em específico.
 
 ## O Jeito Go
@@ -20,14 +20,14 @@ mínimo necessário para concluir suas tarefas. Esta abordagem minimalista para
 aplicações web pode ser desanimadora a primeira vista, porém o resultado final é
 uma aplicação muito mais simples.
 
-**Go facilita as coisas,** é tão fácil quanto isso. Se nós nos treinarmos para
-utilizar o *"Jeito Go"* de programar para a web, nós teremos aplicações web mais
+**Go facilita as coisas,** é simples assim. Se nós nos treinarmos para utilizar
+o *"Jeito Go"* de programar para a web, nós teremos aplicações web mais
 **simples**, **flexíveis** e **fáceis de manter**.
 
 ## O Poder da Simplicidade
 
-Ao passar pelos exercícios deste livro, eu acredito que você ficará surpreso com
-o quão simples algumas destas aplicações podem chegar a ser, e ainda assim
+Ao avançar pelos exercícios deste livro, eu acredito que você ficará surpreso
+com o quão simples algumas destas aplicações podem chegar a ser, e ainda assim
 continuam contendo um grande numero de funcionalidades.
 
 Ao sentar para construir aplicações web em Go, pense bem sobre os componentes e
