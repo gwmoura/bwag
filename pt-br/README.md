@@ -10,7 +10,7 @@ Antes de entrar em todos os pormenores, vamos começar com algumas regras básic
 Para manter este tutorial pequeno e focado, Eu estou assumindo que você está preparado das seguintes formas:
 
 1. Você tem instalado a [Linguagem de Programação Go (en)](https://golang.org).
-2. Você tem configurado o `GOPATH` seguindo o tutorial [Como Escrever Código Go (en)](https://golang.org/doc/code.html#Organization).
+2. Você tem configurado o `GOPATH`, seguindo o tutorial [Como Escrever Código Go (en)](https://golang.org/doc/code.html#Organization).
 3. Você está um pouco familiarizado com os conceitos básicos de Go. ([Um Passeio por Go](http://go-tour-br.appspot.com) é um bom lugar para começar)
 4. Você tem instalado todos os [pacotes necessários](#required-packages)
 5. Você tem instalado o [Cinto de Ferramentas do Heroku ](https://toolbelt.heroku.com/)
@@ -25,7 +25,7 @@ Nome | Caminho a Importar | Descrição
 [httprouter](https://github.com/julienschmidt/httprouter) | github.com/julienschmidt/httprouter | Roteador de requisições HTTP de alta performance que escala bem
 [Negroni](https://github.com/codegangsta/negroni) | github.com/codegangsta/negroni | Middleware HTTP idiomático
 [Black Friday](https://github.com/russross/blackfriday) | github.com/russross/blackfriday | Processador de markdown
-[Render](https://github.com/unrolled/render/tree/v1) | gopkg.in/unrolled/render.v1 | Renderização fácil para JSON, XML, and HTML
+[Render](https://github.com/unrolled/render/tree/v1) | gopkg.in/unrolled/render.v1 | Renderização fácil para JSON, XML, e HTML
 [SQLite3](https://github.com/mattn/go-sqlite3) | github.com/mattn/go-sqlite3 | Driver sqlite3 para go
 
 Você pode instalar (ou atualizar) esses pacotes executando o comando a seguir no seu terminal
