@@ -22,12 +22,13 @@ que é uma ferramenta de linha de comando livre e mantida pelo Heroku. Nós a
 usaremos para criar as nossas aplicações no Heroku. Você pode obtê-la em
 [toolbelt.heroku.com](https://toolbelt.heroku.com/).
 
-## Changing the Code
+## Alterando o Código
 
-To make sure the application from our last chapter will work on Heroku, we will
-need to make a few changes. Heroku gives us a `PORT` environment variable
-and expects our web application to bind to it. Let's start by importing the
-"os" package so we can grab that `PORT` environment variable:
+Para garantir que a nossa aplicação do capítulo anterior vai executar no Heroku,
+nós vamos ter que realizar algumas modificações. O Heroku nos fornece uma
+variável de ambiente chamada `PORT` (porta) e espera que a nossa aplicação web
+execute nesta porta. Vamos começar importando o pacote "os", deste modo nós
+seremos capazes de realizar a leitura da variável de ambiente `PORT`:
 
 ``` go
 import (
@@ -38,8 +39,10 @@ import (
 )
 ```
 
-Next, we need to grab the `PORT` environment variable, check if it is set, and
-if it is we should bind to that instead of our hardcoded port (8080).
+Em seguida, nós teremos de realizar a leitura da variável de ambiente `PORT`,
+verificar se ela está definida, e se estiver, nós deveremos colocar a aplicação
+para escutar nesta porta, ao invés da porta que foi definida de maneira fixa no
+código (8080).  
 
 ``` go
 port := os.Getenv("PORT")
@@ -48,13 +51,14 @@ if port == "" {
 }
 ```
 
-Lastly, we want to bind to that port in our `http.ListenAndServe` call:
+Para finalizar, passaremos esta porta na nossa chamada para
+`http.ListenAndServe`:
 
 ``` go
 http.ListenAndServe(":"+port, nil)
 ```
 
-The final code should look like this:
+O código final deverá ficar parecido com isso:
 
 ``` go
 package main
