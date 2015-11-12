@@ -5,7 +5,7 @@ pequenas e médias aplicações web que se dispoem a sacrificar um pouco de
 flexibilidade na sua infraestrutura em troca de um ambiente livre de
 complicações no que se refere a publicação e manutenção.
 
-Estou escolhendo publicar as nossas aplicações web no Heroku ao longo deste
+Estou optando por publicar as nossas aplicações web no Heroku ao longo deste
 tutorial, por que em minha experiência este tem sido o meio mais rápido de
 se ter uma aplicação web de pé e executando em tempo mínimo. Lembre-se de que o
 foco deste tutorial está em como construir aplicações web em Go, sem ser pego
@@ -17,18 +17,19 @@ manutenção das máquinas em que o nosso código Go irá executar.
 Se você ainda não tem uma conta no Heroku, crie uma em
 [id.heroku.com/signup](https://id.heroku.com/signup). É rápido, fácil e grátis.
 
-O gerenciamento e configuração da aplicação é feito através do Heroku toolbelt,
-que é uma ferramenta de linha de comando livre e mantida pelo Heroku. Nós a
-usaremos para criar as nossas aplicações no Heroku. Você pode obtê-la em
+O gerenciamento e configuração da aplicação é feito através do Cinto de
+Utilidades do Heroku (Heroku toolbelt), que é uma ferramenta de linha de
+comando livre e mantida pelo Heroku. Nós a usaremos para criar as nossas
+aplicações no Heroku. Você pode obtê-la em
 [toolbelt.heroku.com](https://toolbelt.heroku.com/).
 
 ## Alterando o Código
 
-Para garantir que a nossa aplicação do capítulo anterior vai executar no Heroku,
-nós vamos ter que realizar algumas modificações. O Heroku nos fornece uma
-variável de ambiente chamada `PORT` (porta) e espera que a nossa aplicação web
-execute nesta porta. Vamos começar importando o pacote "os", deste modo nós
-seremos capazes de realizar a leitura da variável de ambiente `PORT`:
+Para garantir que a nossa aplicação do capítulo anterior executará no Heroku,
+nós teremos que realizar algumas modificações. O Heroku nos fornece uma variável
+de ambiente chamada `PORT` (porta) e espera que a nossa aplicação web execute
+nesta porta. Vamos começar importando o pacote "os", deste modo nós seremos
+capazes de realizar a leitura da variável de ambiente `PORT`:
 
 ``` go
 import (
@@ -87,49 +88,51 @@ func GenerateMarkdown(rw http.ResponseWriter, r *http.Request) {
 }
 ```
 
-## Configuration
+## Configuração
 
-We need a couple small configuration files to tell Heroku how it should run our
-application. The first one is the `Procfile`, which allows us to define which
-processes should be run for our application. By default, Go will name the
-executable after the containing directory of your main package. For instance,
-if my web application lived in `GOPATH/github.com/codegangsta/bwag/deployment`, my
-`Procfile` will look like this:
+Nós precisaremos de alguns pequenos arquivos de configuração para indicar ao
+Heroku como executar a nossa aplicação. O primeiro arquivo é o `Procfile`, o
+qual nos permite definir quais processos deverão ser executados para a nossa
+aplicação. Por padrão, o Go irá nomear o executável utilizando o nome do
+diretório onde estiver o código do seu package main. Por exemplo, se a minha
+aplicação web estiver em `GOPATH/github.com/codegangsta/bwag/deployment`, meu
+`Procfile` deverá ficar assim:
 
 ```
 web: deployment
 ```
 
-Specifically to run Go applications, we need to also specify a `.godir` file to
-tell Heroku which dir is in fact our package directory.
+Especificamente no caso de aplicações Go, nós também teremos que criar um
+arquivo `.godir` para indicar ao Heroku qual diretório é de fato o nosso
+diretório de pacotes.
 
 ```
 deployment
 ```
 
-## Deployment
+## Publicação
 
-Once all these things in place, Heroku makes it easy to deploy.
+Uma vez que todas estas coisas estejam em seu devido lugar, o Heroku torna fácil
+a sua publicação.
 
-
-Initialize the project as a Git repository:
+Inicialize o projeto como um repositório do Git
 ``` bash
 git init
 git add -A
 git commit -m "Initial Commit"
 ```
 
-Create your Heroku application (specifying the Go buildpack):
+Crie a sua aplicação no Heroku (especificando o buildpack do Go)
 ``` bash
 heroku create -b https://github.com/kr/heroku-buildpack-go.git
 ```
 
-Push it to Heroku and watch your application be deployed!
+Envie o código para o Heroku e veja a sua aplicação ser publicada!
 ``` bash
 git push heroku master
 ```
 
-View your application in your browser:
+Veja a sua aplicação em seu navegador:
 ``` bash
 heroku open
 ```
